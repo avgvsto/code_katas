@@ -136,7 +136,7 @@ class LinkedList:
                 }
             current = current.next()
 
-    def searchByIndex(self, index):
+    def search_by_index(self, index):
 
         current = self.head.next()
         position = 0

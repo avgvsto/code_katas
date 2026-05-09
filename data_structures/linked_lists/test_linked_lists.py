@@ -262,7 +262,7 @@ class TestSearchByIndex:
         ll.append(456)
         ll.append(789)
 
-        result = ll.searchByIndex(1)
+        result = ll.search_by_index(1)
 
         assert result == {"value": 456, "position": 1, "node_id": "[NODE|value:456]"}
 
@@ -273,7 +273,7 @@ class TestSearchByIndex:
         ll.append(456)
         ll.append(789)
 
-        result = ll.searchByIndex(34)
+        result = ll.search_by_index(34)
 
         assert result is None
 
@@ -281,6 +281,6 @@ class TestSearchByIndex:
 
         ll = LinkedList()
 
-        result = ll.searchByIndex(0)
+        result = ll.search_by_index(0)
 
         assert result is None
