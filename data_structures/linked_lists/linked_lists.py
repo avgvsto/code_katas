@@ -67,6 +67,21 @@ class LinkedList:
 
         return current.value()
 
+    def pop_first(self):
+
+        first = self.head.next()
+
+        if not first:
+            return
+
+        value = first.value()
+        next = first.next()
+        self.head.point(next)
+        if not next:
+            self.tail.point(None)
+
+        return value
+
     def prepend(self, value):
 
         new_node = Node(value)

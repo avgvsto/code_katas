@@ -103,6 +103,38 @@ class TestPop:
         assert tail_item is None
 
 
+class TestPopFirst:
+    def test_it_removes_the_first_item(self):
+
+        ll = LinkedList()
+        ll.append(10)
+        ll.append(20)
+        ll.append(30)
+
+        result = ll.pop_first()
+
+        assert result == 10
+        head_item = ll.head.next()
+        assert head_item is not None
+        assert head_item.value() == 20
+        tail_item = ll.tail.next()
+        assert tail_item is not None
+        assert tail_item.value() == 30
+
+    def test_it_removes_the_only_item(self):
+
+        ll = LinkedList()
+        ll.append(10)
+
+        result = ll.pop_first()
+
+        assert result == 10
+        first_item = ll.head.next()
+        assert first_item is None
+        tail_item = ll.tail.next()
+        assert tail_item is None
+
+
 class TestPrepend:
     def test_it_adds_to_an_empty_list(self):
 
