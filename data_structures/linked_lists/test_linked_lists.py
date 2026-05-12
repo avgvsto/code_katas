@@ -5,8 +5,8 @@ def test_it_is_constructed():
 
     ll = LinkedList()
 
-    assert ll.head.next() == None
-    assert ll.tail.next() == None
+    assert ll.head.next() is None
+    assert ll.tail.next() is None
 
 
 class TestAppend:
@@ -21,7 +21,7 @@ class TestAppend:
         assert tail is not None
         assert head is not None
         assert head.value() == tail.value() == 10
-        assert head.next() == tail.next() == None
+        assert head.next() == tail.next() is None
 
     def test_it_appends_second_element(self):
 
@@ -75,7 +75,7 @@ class TestPop:
         tail_item = ll.tail.next()
         assert tail_item is not None
         assert tail_item.value() == 20
-        assert tail_item.next() == None
+        assert tail_item.next() is None
         head_item = ll.head.next()
         assert head_item is not None
         assert head_item.value() == 10
@@ -87,7 +87,7 @@ class TestPop:
 
         item = ll.pop()
 
-        assert item == None
+        assert item is None
 
     def test_it_pops_single_item(self):
 
@@ -149,7 +149,7 @@ class TestPrepend:
         tail_item = ll.tail.next()
         assert tail_item is not None
         assert tail_item.value() == 99
-        assert tail_item.next() == None
+        assert tail_item.next() is None
 
     def test_it_adds_to_the_beggining_of_all_items(self):
 
@@ -167,7 +167,7 @@ class TestPrepend:
         tail_item = ll.tail.next()
         assert tail_item is not None
         assert tail_item.value() == 99
-        assert tail_item.next() == None
+        assert tail_item.next() is None
 
 
 class TestInsert:
