@@ -155,3 +155,22 @@ class LinkedList:
             current = current.next()
             if not current:
                 break
+
+    def reverse(self):
+
+        last = self.tail.next()
+        first = self.head.next()
+        current = first
+
+        if not current:
+            return
+
+        while True:
+            self.prepend(current.value())
+            current = current.next()
+            if current == last:
+                self.prepend(current.value())
+                break
+        if first:
+            first.point(None)
+        self.tail.point(first)

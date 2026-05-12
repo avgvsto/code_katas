@@ -284,3 +284,32 @@ class TestSearchByIndex:
         result = ll.search_by_index(0)
 
         assert result is None
+
+
+class TestReverse:
+    def test_it_reverses_the_list(self):
+
+        ll = LinkedList()
+        ll.append(1)
+        ll.append(2)
+        ll.append(3)
+        ll.append(4)
+        ll.append(5)
+        ll.append(6)
+        ll.append(7)
+
+        ll.reverse()
+
+        head_item = ll.head.next()
+        assert head_item is not None
+        assert head_item.value() == 7
+        assert head_item.next().value() == 6
+        assert head_item.next().next().value() == 5
+        assert head_item.next().next().next().value() == 4
+        assert head_item.next().next().next().next().value() == 3
+        assert head_item.next().next().next().next().next().value() == 2
+        assert head_item.next().next().next().next().next().next().value() == 1
+        tail_item = ll.tail.next()
+        assert tail_item is not None
+        assert tail_item.value() == 1
+        assert tail_item.next() is None
