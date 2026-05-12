@@ -27,7 +27,7 @@ class Node:
         return f"[NODE|value: {self.value()}]"
 
 
-class LinkedList:
+class SimpleLinkedList:
     def __init__(self):
         self.head = Pointer()
         self.tail = Pointer()
@@ -174,3 +174,55 @@ class LinkedList:
         if first:
             first.point(None)
         self.tail.point(first)
+
+
+class LinkedList(SimpleLinkedList):
+    _WALK_BACKWARDS_ERROR = """
+    Linked lists are not optimized to be walked through backwards.
+    Use `.reverse()` and be mindful of performance.
+
+    """
+
+    def __iter__(self):
+
+        current = self.head.next()
+
+        if not current:
+            return []
+
+        while True:
+            yield current.value()
+            current = current.next()
+            if not current:
+                break
+
+    def __getitem__(self, index):
+
+        if isinstance(index, int):
+            if index < 0:
+                raise NotImplementedError(self._WALK_BACKWARDS_ERROR)
+            found = self.search_by_index(index)
+
+            if found:
+                return found["value"]
+            else:
+                raise IndexError
+
+        elif isinstance(index, slice):
+            if any((index.start < 0, index.stop < 0, (index.step and index.step < 0))):
+                raise NotImplementedError(self._WALK_BACKWARDS_ERROR)
+
+            internal = []
+            for i, element in enumerate(self):
+                if i >= index.start and i < index.stop:
+                    if index.step:
+                        _, remainder = divmod(i - index.start, index.step)
+                        if remainder > 0:
+                            continue
+                    internal.append(element)
+                if i >= index.stop:
+                    break
+
+            return internal
+        else:
+            raise IndexError
