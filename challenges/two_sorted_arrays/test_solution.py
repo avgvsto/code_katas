@@ -1,5 +1,3 @@
-import pytest
-
 from challenges.two_sorted_arrays.two_sorted_arrays import Solution
 
 
