@@ -50,11 +50,7 @@ def sort_bubble(iterable):
         print("========================")
         for index in sublist:
             current = to_sort[index]
-            print(f"    current={current}[{index}]")
             next_index = index + 1
-            if next_index > len(sublist):
-                print("    SKIPPING")
-                continue
             next_item = to_sort[next_index]
             print(f"Current={current}[{index}], Next={next_item}[{next_index}]")
 
