@@ -31,6 +31,14 @@
 
 
 def sort_bubble(iterable):
+    """Bubble-sort is one of the basic algorigthms.
+
+    Big-O time: O(n^2).
+    Basically it has a 2-level nested for-loop.
+
+    The basic mechanics is to "bubble-up" the largest item in the iterable
+    to the outer-most right, in each iteration.
+    """
 
     to_sort = [item for item in iterable]
     for i in reversed(range(len(iterable))):
