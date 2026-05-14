@@ -15,5 +15,5 @@ dev = [
 pythonpath = ["."]
 python_functions = ["test_*", "it_*"]
 python_classes = ["Test*", "It*"]
-python_files = ["test_*.py", "*_test.py"]
+python_files = ["*.test.py", "test_*.py", "*_test.py"]
 addopts = ["-s", "-v", "--tb=short", "--no-header"]
